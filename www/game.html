@@ -1,0 +1,247 @@
+<!--
+	file:///Users/Quentin/Documents/Programmation/Applications/Throw%20Gerard/www/game_view.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+		<link rel="stylesheet" type="text/css" href="css/game.css" />
+		<title>Throw Gerard</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript" src="js/Data.js"></script>
+		
+	<!-- Loading -->
+		<div id="loading-screen"><p>Loading...</p></div>
+		
+		<script type="text/javascript">
+			var LOADING_IN_PROGRESS = true;
+		</script>
+		
+	<!-- Initialization -->
+		<div id="image-background"></div>
+		<div id="frame-for-images-to-preload"></div>
+		
+		<script type="text/javascript">
+			var FPS_10 = Math.round(1000 / 10);
+			var FPS_15 = Math.round(1000 / 15);
+			var FPS_18 = Math.round(1000 / 18);
+			var FPS_24 = Math.round(1000 / 24);
+			var FPS_30 = Math.round(1000 / 30);
+			var FPS_48 = Math.round(1000 / 48);
+			var FPS_60 = Math.round(1000 / 60);
+			
+			var SCREEN_WIDTH = parseInt(window.innerWidth, 10);
+			var SCREEN_HEIGHT = parseInt(window.innerHeight, 10);
+			
+			var POLE_WIDTH = 0;
+			
+			var CABLE_HEIGHT = (SCREEN_HEIGHT / 3.37) * 2.37;
+			
+			var Characters = {
+				NORMAL: "normal",
+				RAMBO: "rambo",
+				ALOHA: "aloha"
+			}
+			
+		// <!-- Loading Settings -->	
+			
+			var CHARACTER = Characters.NORMAL;
+			
+			var SET_useClouds		= true;
+			var SET_useElectricity	= true;
+			
+			var IS_DEVICE_TEST = true;
+			
+		/* <!-- FOR TEST --> */
+			var SET_useClouds		= false;
+			var SET_useElectricity	= false;
+		/*	<!-- --> */
+			var IS_DEVICE_TEST = false;
+		/*	<!-- --> */
+		</script>
+		
+	<!-- Pre loading --> 
+		<script type="text/javascript" src="js/game/PreLoading.js"></script>
+	
+	<!-- Graphic elements -->
+		<div id="clouds"></div>
+		
+        <div id="obstacles"></div>
+		
+		<div id="stakes"></div>
+		
+		<div id="angels"></div>
+        
+		<div id="gerard"><!--
+            --><div id="gerard-eyes"></div><!--  GERARD'S EYES WITHIN GERARD
+     --></div>
+        
+        <canvas id="electric-cable"></canvas>
+		
+		<div id="electricity"></div>
+		
+		<div id="pole-1"><!--
+			--><div id="pole-1-top"></div><!--
+			--><div id="pole-1-middle"></div><!--
+			--><div id="pole-1-bottom"></div><!--
+		--></div>
+		
+		<div id="pole-2"><!--
+			--><div id="pole-2-top"></div><!--
+			--><div id="pole-2-middle"></div><!--
+			--><div id="pole-2-bottom"></div><!--
+		--></div>
+		
+		<div id="concrete"></div>
+		
+		<div id="dead-birds"></div>
+		
+		<div id="score"></div>
+		<div id="coins"></div>
+		<div id="lives"></div>
+		
+		<div id="save-me"><p>Save Me</p><div id="progress-bar"><div id="progress"></div></div></div>
+		
+	<!-- Scripts -->
+		<script>
+			
+		// POLES
+			var imgPole_W = 164;
+			var imgPole_top_H = 245;
+			var imgPole_bottom_H = 206;
+			
+			var divideFactor = 5;
+			
+			var screenPole_W = imgPole_W / divideFactor;
+			var screenPole_top_H = (imgPole_top_H / divideFactor) / 2;
+			var screenPole_bottom_H = (imgPole_bottom_H / divideFactor) / 2;
+			
+			POLE_WIDTH = screenPole_W;
+			
+			var pole1 = document.querySelector("#pole-1");
+				pole1.style.left = "0px";
+				pole1.style.width = POLE_WIDTH + "px";
+				pole1.style.height = (SCREEN_HEIGHT - CABLE_HEIGHT + 14) + "px";
+			
+					var pole1_top = document.querySelector("#pole-1-top");
+						pole1_top.style.width = POLE_WIDTH + "px";
+						pole1_top.style.height = (screenPole_top_H * 2) + "px"; // 27 = 1/2 taille image ajouté à pole1.height 
+						pole1_top.style.top = "0px";
+						pole1_top.style.backgroundImage = "url(img/game/set/pole-1-top.png)";
+							
+					var pole1_middle = document.querySelector("#pole-1-middle");
+						pole1_middle.style.width = POLE_WIDTH + "px";
+						pole1_middle.style.height = (SCREEN_HEIGHT - CABLE_HEIGHT + 20) - (screenPole_top_H * 2) - (screenPole_bottom_H * 2) + "px"; // TOTAL - TOP - BOTTOM
+						pole1_middle.style.top = (screenPole_top_H * 2) + "px";
+						pole1_middle.style.backgroundImage = "url(img/game/set/pole-1-middle.png)";
+						pole1_middle.style.backgroundRepeat = "repeat-y";
+			
+					var pole1_bottom = document.querySelector("#pole-1-bottom");
+						pole1_bottom.style.width = POLE_WIDTH + "px";
+						pole1_bottom.style.height = (screenPole_bottom_H * 2) + "px";
+						pole1_bottom.style.bottom = "0px";
+						pole1_bottom.style.backgroundImage = "url(img/game/set/pole-1-bottom.png)";
+			
+			var pole2 = document.querySelector("#pole-2");
+				pole2.style.right = "0px";
+				pole2.style.width = POLE_WIDTH + "px";
+				pole2.style.height = (SCREEN_HEIGHT - CABLE_HEIGHT + 14) + "px";
+			
+					var pole2_top = document.querySelector("#pole-2-top");
+						pole2_top.style.width = POLE_WIDTH + "px";
+						pole2_top.style.height = (screenPole_top_H * 2) + "px"; // 27 = 1/2 taille image ajouté à pole2.height 
+						pole2_top.style.top = "0px";
+						pole2_top.style.backgroundImage = "url(img/game/set/pole-2-top.png)";
+							
+					var pole2_middle = document.querySelector("#pole-2-middle");
+						pole2_middle.style.width = POLE_WIDTH + "px";
+						pole2_middle.style.height = (SCREEN_HEIGHT - CABLE_HEIGHT + 20) - (screenPole_top_H * 2) - (screenPole_bottom_H * 2) + "px"; // TOTAL - TOP - BOTTOM
+						pole2_middle.style.top = (screenPole_top_H * 2) + "px";
+						pole2_middle.style.backgroundImage = "url(img/game/set/pole-2-middle.png)";
+						pole2_middle.style.backgroundRepeat = "repeat-y";
+			
+					var pole2_bottom = document.querySelector("#pole-2-bottom");
+						pole2_bottom.style.width = POLE_WIDTH + "px";
+						pole2_bottom.style.height = (screenPole_bottom_H * 2) + "px";
+						pole2_bottom.style.bottom = "0px";
+						pole2_bottom.style.backgroundImage = "url(img/game/set/pole-2-bottom.png)";
+			
+		// STAKES
+			var stakes_W = SCREEN_WIDTH - (2 * POLE_WIDTH);
+			
+			var imgStake_W = 76;
+			var imgStake_H = 290;
+			
+			var screenStake_W = imgStake_W / (imgStake_H / 35);
+			var screenStake_H = 35;
+			
+			var nbOfStakes = Math.floor(0.7 * (stakes_W / screenStake_W));
+			
+			var spaceSize = (stakes_W - (nbOfStakes * screenStake_W)) / (nbOfStakes - 1);
+						
+			var stakes = document.querySelector("#stakes");
+				stakes.style.width = stakes_W + "px";
+				stakes.style.left = POLE_WIDTH + "px";
+
+			
+			for (var i = 0; i < nbOfStakes; i++) {
+				var singleStake = document.createElement("div");
+					singleStake.className = "single-stake";
+					singleStake.style.width = screenStake_W + "px";
+					singleStake.style.height = screenStake_H + "px";
+					singleStake.style.left = (i * (screenStake_W + spaceSize)) + "px";
+					singleStake.style.top = ((Math.random() * 5) + 0) + "px";
+				
+				stakes.appendChild(singleStake);
+			}
+			
+		</script>
+		
+		<script type="text/javascript" src="cordova.js"></script>
+		
+		<script type="text/javascript" src="js/jquery/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.easing.compatibility.js"></script>
+		
+		<script>jQuery.fx.interval = FPS_30;</script>
+		
+		<script type="text/javascript">
+			if (SET_useClouds) {
+				var script_Clouds = document.createElement("script");
+				script_Clouds.type = "text/javascript";
+				script_Clouds.src = "js/game/Clouds.js";
+					document.querySelector("body").appendChild(script_Clouds);
+			}
+		</script>
+		
+		<script type="text/javascript" src="js/game/Sound.js"></script>
+		<script type="text/javascript" src="js/game/Score.js"></script>
+		<script type="text/javascript" src="js/game/Coins.js"></script>
+		<script type="text/javascript" src="js/game/SaveMe.js"></script>
+		<script type="text/javascript" src="js/game/sqcollision.js"></script>
+        <script type="text/javascript" src="js/game/Obstacles.js"></script>
+		<script type="text/javascript" src="js/game/States.js"></script>
+		<script type="text/javascript" src="js/game/Gerard.js"></script>
+		<script type="text/javascript" src="js/game/ElectricCable.js"></script>
+		
+		<script type="text/javascript">
+			if (SET_useElectricity) {
+				var script_Electricity = document.createElement("script");
+				script_Electricity.type = "text/javascript";
+				script_Electricity.src = "js/game/Electricity.js";
+					document.querySelector("body").appendChild(script_Electricity);
+			}
+
+			if (!IS_DEVICE_TEST) {
+				LOADING_IN_PROGRESS = false;
+				document.querySelector("#loading-screen").style.display = "none";
+			}
+		</script>
+	</body>
+</html>
