@@ -3,7 +3,7 @@
 */
 
 function Vibration() {
-	this.vibrate = function(time) {
+	this.vibrate = function(time = 700) {
 		
 		if (IS_REAL_DEVICE) {
 			navigator.vibrate(time);

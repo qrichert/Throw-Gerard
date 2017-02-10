@@ -6,10 +6,14 @@ function Sound() {
 	
 	this.playBomb = function() {
 		new Audio('audio/bomb.mp3').play();
+		
+		VIBRATION.vibrate();
 	}
 	
 	this.playElectricity = function() {
 		new Audio('audio/electricity.mp3').play();
+		
+		VIBRATION.vibrate();
 	}
 	
 	this.playEndOfGame = function() {
@@ -37,6 +41,8 @@ function Sound() {
 	
 	this.playGhost = function() {
 		new Audio('audio/ghost.mp3').play();
+		
+		VIBRATION.vibrate();
 	}
 	
 	this.playHeart = function() {
@@ -49,6 +55,8 @@ function Sound() {
 	
 	this.playUfo = function() {
 		new Audio('audio/ufo.mp3').play();
+		
+		VIBRATION.vibrate();
 	}
 }
 
