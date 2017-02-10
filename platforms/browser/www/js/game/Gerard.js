@@ -438,9 +438,11 @@ function GerardOBJ() {
 							alert("click to reload");
 						}
 						
-						location.href = "game.html";
-						// Lucky Boxes (if there are any, or game menu)
-						// Game Menu
+						if (DATA.getLuckyBoxes() != 0 || DATA.getLuckyGolds() != 0)
+							location.href = "luckyboxes.js";
+						
+						else
+							location.href = "index.html";
 					}
 				}
 				
@@ -462,13 +464,6 @@ function GerardOBJ() {
 		if (this.m_currentPhase != PhaseType.DIE) {
 			
 			if (!LIVES.takeLife()) {
-				/*alert("End of the gaaaaaaammmme !\n" +
-					  "Score: "+ SCORE.getCurrentScore() + "\n" +
-					  "Coins : " + COINS.getCoins() + "\n" +
-					  "Gems : " + GEMS.getGems() + "\n" +
-					  "Lucky Boxes : " + LUCKYBOXES.getLuckyBoxes() + "\n" +
-					  "Lucky Gold : " + LUCKYGOLDS.getLuckyGolds());*/
-				
 				GERARD.setNoMoreLives();
 			}
 			
