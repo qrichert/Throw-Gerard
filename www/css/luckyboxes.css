@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/* FONTS */
+
+@font-face {
+	font-family: "QuentinHW";
+	src: url("fonts/Quentin's Handwriting.ttf") format('truetype'),
+	      url("fonts/Quentin's Handwriting.eot") format('eot');
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+	-webkit-touch-callout: none;		/* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;		/* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;		/* prevent copy paste, to allow, change 'none' to 'text' */
+	
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(#72ccd7, #a1dad8);
+	background-size: auto 100vh;
+	background-position: top center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+@keyframes rotateSpinnings {
+	from {
+		transform: rotate(0deg);
+	}
+	
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#bg-spinning-1,
+#bg-spinning-2,
+#bg-spinning-3 {
+	width: 78vh;
+	height: 78vh;
+	max-width: 335px;
+	max-height: 335px;
+	background-size: cover;
+	position: absolute;
+	
+	animation-name: rotateSpinnings;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#bg-spinning-1 {
+	animation-duration: 2.5s;
+	background-image: url('../img/luckyboxes/bg-rays-1.png');
+}
+
+#bg-spinning-2 {
+	animation-duration: 3.5s;
+	background-image: url('../img/luckyboxes/bg-rays-2.png');
+}
+
+#bg-spinning-3 {
+	animation-duration: 4.5s;
+	background-image: url('../img/luckyboxes/bg-rays-3.png');
+}
+
+#luckybox,
+#luckygold {
+	width: 57vw;
+	height: 57vw;
+	max-width: 200px;
+	max-height: 200px;
+	position: absolute;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	visibility: hidden;
+	cursor: pointer;
+}
+
+#luckybox { background-image: url('../img/luckyboxes/luckybox-L.png'); }
+#luckygold { background-image: url('../img/luckyboxes/luckygold-L.png'); }
+
+#rewards {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0);
+	transition: background-color 0.3s ease;
+}
+
+#reward {
+	position: absolute;
+	width: 45vw;
+	height: 45vw;
+	max-width: 200px;
+	max-height: 200px;
+	cursor: pointer;
+	visibility: hidden;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#amount {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 45vw;
+	font-size: 15vw;
+	line-height: 16vw;
+	font-family: "QuentinHW";
+	color: white;
+	text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
+}

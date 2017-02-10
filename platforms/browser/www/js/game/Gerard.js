@@ -424,6 +424,8 @@ function GerardOBJ() {
 					}
 					
 					else {
+						SOUND.playEndOfGame();
+						
 						if (SCORE.getCurrentScore() > DATA.getBestScore()) {
 							DATA.setBestScore(SCORE.getCurrentScore());
 							alert("New high score!");
