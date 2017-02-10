@@ -3,10 +3,18 @@
 */
 
 function Vibration() {
-	this.vibrate = function (duration) {
+	this.vibrate = function(time) {
 		
 		if (IS_REAL_DEVICE) {
-			
+			navigator.vibrate(time);
+		}
+		
+	}
+	
+	this.cancel = function() {
+		
+		if (IS_REAL_DEVICE) {
+			navigator.vibrate(0);
 		}
 		
 	}

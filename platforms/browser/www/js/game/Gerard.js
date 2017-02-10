@@ -89,7 +89,7 @@ function GerardOBJ() {
 			
 			var rotationFactor = 3.25;
 			
-			if (!IS_DEVICE_TEST)
+			if (!IS_REAL_DEVICE)
 				rotationFactor = 1.3;
 			
 			if (this.m_currentPhase == PhaseType.JUMP)
@@ -607,7 +607,7 @@ document.addEventListener("click", function(e) {
 	}
 }, false);
 
-if (!IS_DEVICE_TEST) {
+if (!IS_REAL_DEVICE) {
 
 	document.addEventListener("touchend", function(e) {
 
