@@ -15,11 +15,11 @@ var LuckyBoxesRewards = {
 }
 
 var LuckyBoxesRewardsFrequency = {
-	COINS_5:	{ FREQUENCY: 10,	TYPE: LuckyBoxesRewards.COINS_5		},
-	COINS_10:	{ FREQUENCY: 10,	TYPE: LuckyBoxesRewards.COINS_10	},
+	COINS_5:	{ FREQUENCY: 60,	TYPE: LuckyBoxesRewards.COINS_5		},
+	COINS_10:	{ FREQUENCY: 40,	TYPE: LuckyBoxesRewards.COINS_10	},
 	COINS_20:	{ FREQUENCY: 10,	TYPE: LuckyBoxesRewards.COINS_20	},
-	GEM_1:		{ FREQUENCY: 10,	TYPE: LuckyBoxesRewards.GEM_1		},
-	LUCKY_GOLD:	{ FREQUENCY: 10,	TYPE: LuckyBoxesRewards.LUCKY_GOLD	}
+	GEM_1:		{ FREQUENCY: 20,	TYPE: LuckyBoxesRewards.GEM_1		},
+	LUCKY_GOLD:	{ FREQUENCY: 15,	TYPE: LuckyBoxesRewards.LUCKY_GOLD	}
 }
 
 // Converting frequencies to %
@@ -71,11 +71,11 @@ var LuckyGoldsRewards = {
 }
 
 var LuckyGoldsRewardsFrequency = {
-	COINS_20:		{ FREQUENCY: 10,	TYPE: LuckyGoldsRewards.COINS_20		},
-	GEM_1:			{ FREQUENCY: 10,	TYPE: LuckyGoldsRewards.GEM_1			},
-	GEM_5:			{ FREQUENCY: 10,	TYPE: LuckyGoldsRewards.GEM_5			},
-	GEM_10:			{ FREQUENCY: 10,	TYPE: LuckyGoldsRewards.GEM_10			},
-	GERARD_ALOHA:	{ FREQUENCY: 10,	TYPE: LuckyGoldsRewards.GERARD_ALOHA	}
+	COINS_20:		{ FREQUENCY: 60,	TYPE: LuckyGoldsRewards.COINS_20		},
+	GEM_1:			{ FREQUENCY: 40,	TYPE: LuckyGoldsRewards.GEM_1			},
+	GEM_5:			{ FREQUENCY: 30,	TYPE: LuckyGoldsRewards.GEM_5			},
+	GEM_10:			{ FREQUENCY: 15,	TYPE: LuckyGoldsRewards.GEM_10			},
+	GERARD_ALOHA:	{ FREQUENCY: 3,		TYPE: LuckyGoldsRewards.GERARD_ALOHA	}
 }
 
 // Converting frequencies to %

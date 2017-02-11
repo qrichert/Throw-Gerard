@@ -151,9 +151,6 @@ function hideReward() {
 	else {
 		location.href = "index.html";
 	}
-
-	document.querySelector("#lb").innerHTML = DATA.getLuckyBoxes();
-	document.querySelector("#lg").innerHTML = DATA.getLuckyGolds();
 }
 
 REWARD.addEventListener("click", function() { hideReward(); }, false);
