@@ -107,6 +107,16 @@ function Data() {
 		this.getLuckyGolds = function() {
 			return this.getValue("luckygolds", true);
 		}
+		
+	/* CHARACTERS */
+		
+		this.unlockGerardAloha = function() {
+			this.setValue("gerard-aloha", "true");
+		}
+		
+		this.getGerardAloha = function() {
+			return this.getValue("gerard-aloha") == "true" ? true : false;
+		}
 }
 
 var DATA = new Data();

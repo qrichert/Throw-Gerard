@@ -424,16 +424,18 @@ function GerardOBJ() {
 					}
 					
 					else {
-						SOUND.playEndOfGame();
-						
 						if (SCORE.getCurrentScore() > DATA.getBestScore()) {
 							DATA.setBestScore(SCORE.getCurrentScore());
-							alert("New high score!");
+							LUCKYBOXES.addLuckyBox();
+							
+							alert("New high score!\nYou win a lucky box!");
 						}
 						
 						else if (SCORE.getCurrentScore() < DATA.getWorstScore()) {
 							DATA.setWorstScore(SCORE.getCurrentScore());
-							alert("New worst score!");
+							LUCKYBOXES.addLuckyBox();
+							
+							alert("New worst score!\nYou win a lucky box!");
 						}
 						
 						else {
@@ -441,7 +443,7 @@ function GerardOBJ() {
 						}
 						
 						if (DATA.getLuckyBoxes() != 0 || DATA.getLuckyGolds() != 0)
-							location.href = "luckyboxes.js";
+							location.href = "luckyboxes.html";
 						
 						else
 							location.href = "index.html";
@@ -465,7 +467,7 @@ function GerardOBJ() {
 		
 		if (this.m_currentPhase != PhaseType.DIE) {
 			
-			if (!LIVES.takeLife()) {
+			if (!LIVES.takeLife()) {				
 				GERARD.setNoMoreLives();
 			}
 			

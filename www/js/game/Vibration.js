@@ -5,6 +5,8 @@
 function Vibration() {
 	this.vibrate = function(time = 700) {
 		
+		return; // cause doesn't seem to work...
+
 		if (IS_REAL_DEVICE) {
 			navigator.vibrate(time);
 		}

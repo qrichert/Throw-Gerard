@@ -1,0 +1,93 @@
+<!--
+	file:///Users/Quentin/Documents/Programmation/Applications/Throw%20Gerard/www/luckyboxes.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+		<link rel="stylesheet" type="text/css" href="css/luckyboxes.css" />
+		<title>Throw Gerard</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			new Audio('audio/luckyboxes/music.mp3').play(); // Make it an HTML 5 element.
+		</script>
+		
+		<script type="text/javascript" src="js/Data.js"></script>
+		
+		<script type="text/javascript" src="js/jquery/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.easing.compatibility.js"></script>
+		
+<!--		<script>jQuery.fx.interval = FPS_30;</script>-->
+		
+		<div id="bg-spinning-1"></div>
+		<div id="bg-spinning-2"></div>
+		<div id="bg-spinning-3"></div>
+		
+			<script type="text/javascript">
+				var bgSpinning1 = document.querySelector("#bg-spinning-1");
+
+					bgSpinning1.style.left = ((parseInt(window.innerWidth, 10) / 2) - (bgSpinning1.offsetWidth / 2)) + "px";
+					bgSpinning1.style.top = ((parseInt(window.innerHeight, 10) / 2) - (bgSpinning1.offsetHeight / 2)) + "px";
+
+				var bgSpinning2 = document.querySelector("#bg-spinning-2");
+
+					bgSpinning2.style.left = ((parseInt(window.innerWidth, 10) / 2) - (bgSpinning2.offsetWidth / 2)) + "px";
+					bgSpinning2.style.top = ((parseInt(window.innerHeight, 10) / 2) - (bgSpinning2.offsetHeight / 2)) + "px";
+				
+				var bgSpinning3 = document.querySelector("#bg-spinning-3");
+
+					bgSpinning3.style.left = ((parseInt(window.innerWidth, 10) / 2) - (bgSpinning3.offsetWidth / 2)) + "px";
+					bgSpinning3.style.top = ((parseInt(window.innerHeight, 10) / 2) - (bgSpinning3.offsetHeight / 2)) + "px";
+			</script>
+		
+		<div id="luckybox"></div>
+		<div id="luckygold"></div>
+		
+			<script type="text/javascript">
+				var LUCKY_BOX = document.querySelector("#luckybox");
+
+					LUCKY_BOX.style.left = ((parseInt(window.innerWidth, 10) / 2) - (LUCKY_BOX.offsetWidth / 2)) + "px";
+					LUCKY_BOX.style.top = ((parseInt(window.innerHeight, 10) / 2) - (LUCKY_BOX.offsetHeight / 2)) + "px";
+
+				var LUCKY_GOLD = document.querySelector("#luckygold");
+
+					LUCKY_GOLD.style.left = ((parseInt(window.innerWidth, 10) / 2) - (LUCKY_GOLD.offsetWidth / 2)) + "px";
+					LUCKY_GOLD.style.top = ((parseInt(window.innerHeight, 10) / 2) - (LUCKY_GOLD.offsetHeight / 2)) + "px";
+			</script>
+		
+		<div id="rewards">
+			<div id="reward">
+				<p id="amount"></p>
+			</div>
+		</div>
+		
+			<script type="text/javascript">
+				var REWARDS = document.querySelector("#rewards");
+				
+				var REWARD = document.querySelector("#reward");
+
+					REWARD.style.left = ((parseInt(window.innerWidth, 10) / 2) - (REWARD.offsetWidth / 2)) + "px";
+					REWARD.style.top = ((parseInt(window.innerHeight, 10) / 2) - (REWARD.offsetHeight / 2)) + "px";
+				
+				var AMOUNT = new function() {
+					this.m_node = document.querySelector("#amount");
+					
+					this.changeValue = function(v) {
+						this.m_node.innerHTML = v;
+						this.m_node.style.left = ((REWARD.offsetWidth / 2) - (this.m_node.offsetWidth / 2)) + "px";
+					}
+				}
+				
+				AMOUNT.changeValue(100);
+			</script>
+		
+		<script type="text/javascript" src="js/luckyboxes/Rewards.js"></script>
+		<script type="text/javascript" src="js/luckyboxes/LuckyBoxes.js"></script>
+	</body>
+</html>

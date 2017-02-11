@@ -10,7 +10,7 @@ function SaveMe() {
 	
 	this.ask = function() {
 		
-		if ((DATA.getGems() - this.m_gemsNeeded) <= 0) // Not enough gems
+		if ((DATA.getGems() - this.m_gemsNeeded) < 0) // Not enough gems
 			return false;
 		
 		if (confirm("Save me?\nUse " + this.m_gemsNeeded + " of your " + DATA.getGems() + " gems to get saved !")) {
