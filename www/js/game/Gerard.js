@@ -546,26 +546,29 @@ var GERARD = new GerardOBJ();
 
 /* Mouse */
 
-GERARD.getGerard().addEventListener("mousedown", function(e) {
-	if (GERARD.getCurrentPhase() != PhaseType.CABLE)
-		return;
+if (!IS_TOUCHABLE) { // To avoid having two click events.
 	
-	GERARD.setTouchHappening(true, e.clientX, e.clientY);
-}, false);
+	GERARD.getGerard().addEventListener("mousedown", function(e) {
+		if (GERARD.getCurrentPhase() != PhaseType.CABLE)
+			return;
 
-GERARD.getGerard().addEventListener("mouseup", function(e) {
-	if (GERARD.getTouchHappening()) {
-		GERARD.setTouchHappening(false, 0, 0);
-		checkTouchEnd();
-	}
-}, false);
-	
-document.addEventListener("mousemove", function(e) {
-	if (GERARD.getTouchHappening()) {
-		GERARD.setPosX(e.clientX - GERARD.getTouchPosX()); // We keep the mouse for testing purposes
-		GERARD.setPosY(e.clientY - GERARD.getTouchPosY());
-	}
-}, false);
+		GERARD.setTouchHappening(true, e.clientX, e.clientY);
+	}, false);
+
+	GERARD.getGerard().addEventListener("mouseup", function(e) {
+		if (GERARD.getTouchHappening()) {
+			GERARD.setTouchHappening(false, 0, 0);
+			checkTouchEnd();
+		}
+	}, false);
+
+	document.addEventListener("mousemove", function(e) {
+		if (GERARD.getTouchHappening()) {
+			GERARD.setPosX(e.clientX - GERARD.getTouchPosX()); // We keep the mouse for testing purposes
+			GERARD.setPosY(e.clientY - GERARD.getTouchPosY());
+		}
+	}, false);
+}
 
 /* Touch */
 
@@ -595,20 +598,23 @@ document.addEventListener("touchmove", function(e) {
 
 /* FOR COMPUTERS AND TESTING */
 
-document.addEventListener("click", function(e) {
-
-	if (e.clientX < SCREEN_WIDTH / 2) {
-		GERARD.setPosX(GERARD.getPosX() - 20);
-	}
+if (!IS_TOUCHABLE) {
 	
-	else if (e.clientX > SCREEN_WIDTH / 2) {
-		GERARD.setPosX(GERARD.getPosX() + 20);
-	}
-}, false);
+	document.addEventListener("click", function(e) { // Moving left and right MOUSE
+
+		if (e.clientX < SCREEN_WIDTH / 2) {
+			GERARD.setPosX(GERARD.getPosX() - 20);
+		}
+
+		else if (e.clientX > SCREEN_WIDTH / 2) {
+			GERARD.setPosX(GERARD.getPosX() + 20);
+		}
+	}, false);
+}
 
 if (!IS_REAL_DEVICE) {
 
-	document.addEventListener("touchend", function(e) {
+	document.addEventListener("touchend", function(e) { // Moving left and right TOUCH
 
 		if (e.changedTouches[0].clientX < SCREEN_WIDTH / 2) {
 			GERARD.setPosX(GERARD.getPosX() - 20);
