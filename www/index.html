@@ -12,7 +12,10 @@
 		<title>Throw Gerard</title>
 	</head>
 	<body>
+		
+		<!-- !!! REMEMBER TO ALSO ADD ANY NEW CHARACTER TO THE ARRAY BELOW !!! -->
 		<div id="characters-frame">
+			<div id="cable"></div>
 			<div id="characters">
 				<div class="character" id="normal"></div><!--
 				--><div class="character" id="rambo"></div><!--
@@ -61,15 +64,26 @@
 					var target = e.target || e.srcElement;
 					var selectedCharacter = target.id;
 					
-					for (var j = 0; j < charactersObjectsArray.length; j++) {
-						if (selectedCharacter == charactersObjectsArray[j].getCharacter())
-							charactersObjectsArray[j].select();
+					if (DATA.getCharacter(selectedCharacter) || selectedCharacter == "normal") {
+						DATA.selectCharacter(selectedCharacter);
 						
-						else
-							charactersObjectsArray[j].deselect();
+						for (var j = 0; j < charactersObjectsArray.length; j++) {
+							if (selectedCharacter == charactersObjectsArray[j].getCharacter())
+								charactersObjectsArray[j].select();
+
+							else
+								charactersObjectsArray[j].deselect();
+						}
+					}
+					
+					else {
+						alert("character not unlocked!");
 					}
 					
 				}, false);
+				
+				if (DATA.getSelectedCharacter() == charactersObjectsArray[i].getCharacter())
+					charactersObjectsArray[i].select();
 			}
 			
 			document.querySelector("#characters").style.width = (charactersArray.length * characterWidth) + (charactersArray.length * spacingWidth) - spacingWidth + "px";
@@ -82,5 +96,7 @@
 		<script type="text/javascript">
 //			location.href = "game.html";
 		</script>
+		
+		<a href="game.html">Jouer !</a>
 	</body>
 </html>

@@ -108,8 +108,33 @@ function Data() {
 			return this.getValue("luckygolds", true);
 		}
 		
-	/* CHARACTERS */
+	/* CHARACTER SELECTION */
 		
+		this.selectCharacter = function(c) {
+			this.setValue("current-character", c);
+		}
+		
+		this.getSelectedCharacter = function() {
+			return this.getValue("current-character");
+		}
+		
+	/* SPECIAL CHARACTERS */
+		
+	// Any
+		this.getCharacter = function(c) {
+			return this.getValue("gerard-" + c) == "true" ? true : false;
+		}
+		
+	// Rambo
+		this.unlockGerardRambo = function() {
+			this.setValue("gerard-rambo", "true");
+		}
+		
+		this.getGerardRambo = function() {
+			return this.getValue("gerard-rambo") == "true" ? true : false;
+		}
+		
+	// Aloha
 		this.unlockGerardAloha = function() {
 			this.setValue("gerard-aloha", "true");
 		}

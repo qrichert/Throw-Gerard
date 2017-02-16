@@ -17,11 +17,15 @@ function Character(node, character) { // character = string
 				return this.m_character;
 			}
 	
-		this.m_node.style.backgroundImage = "url('img/menu/" + this.m_character + ".png')";
+			if (!DATA.getCharacter(this.m_character) && this.m_character != "normal")
+				this.m_node.style.backgroundImage = "url('img/menu/locked.png')";
+	
+			else
+				this.m_node.style.backgroundImage = "url('img/menu/" + this.m_character + ".png')";
 	
 	this.select = function() {
-		alert("select: " + this.m_character);
-		this.m_node.style.backgroundColor = "rgba(0, 0, 0, 1)";
+		this.m_node.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+		this.m_node.style.borderRadius = "50%";
 	}
 	
 	this.deselect = function() {

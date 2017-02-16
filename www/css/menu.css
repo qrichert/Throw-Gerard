@@ -52,3 +52,10 @@ body {
 	background-color: rgba(0, 0, 0, 0);
 	background-repeat: no-repeat;
 }
+
+#cable {
+	position: absolute;
+	width: 100vw;
+	height: 78px;
+	border-bottom: 2px solid black;
+}

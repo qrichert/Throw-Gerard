@@ -53,7 +53,15 @@
 			
 		// <!-- Loading Settings -->	
 			
-			var CHARACTER = Characters.NORMAL;
+			var CHARACTER = null;
+			
+			switch(DATA.getSelectedCharacter()) {
+				case "normal":	CHARACTER = Characters.NORMAL;	break;
+				case "rambo":	CHARACTER = Characters.RAMBO;	break;
+				case "aloha":	CHARACTER = Characters.ALOHA;	break;
+					
+				default:		CHARACTER = Characters.NORMAL;	break;
+			}
 			
 			var SET_useClouds		= true;
 			var SET_useElectricity	= true;
