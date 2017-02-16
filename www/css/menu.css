@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/* FONTS */
+
+@font-face {
+	font-family: "QuentinHW";
+	src: url("fonts/Quentin's Handwriting.ttf") format('truetype'),
+	      url("fonts/Quentin's Handwriting.eot") format('eot');
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+	-webkit-touch-callout: none;		/* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;		/* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;		/* prevent copy paste, to allow, change 'none' to 'text' */
+	
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(#72ccd7, #a1dad8);
+	background-size: auto 100vh;
+	background-position: top center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+#characters-frame {
+	position: relative;
+	height: 85px;
+	border: 1px solid yellow;
+}
+
+#characters {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	height: 85px;
+	border: 1px solid blue;
+}
+
+.character {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0);
+	background-repeat: no-repeat;
+}
