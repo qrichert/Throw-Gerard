@@ -438,10 +438,6 @@ function GerardOBJ() {
 							alert("New worst score!\nYou win a lucky box!");
 						}
 						
-						else {
-							alert("click to reload");
-						}
-						
 						if (DATA.getLuckyBoxes() != 0 || DATA.getLuckyGolds() != 0)
 							location.href = "luckyboxes.html";
 						

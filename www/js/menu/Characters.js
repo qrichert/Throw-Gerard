@@ -24,12 +24,11 @@ function Character(node, character) { // character = string
 				this.m_node.style.backgroundImage = "url('img/menu/" + this.m_character + ".png')";
 	
 	this.select = function() {
-		this.m_node.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
-		this.m_node.style.borderRadius = "50%";
+		$(this.m_node).addClass("selected");
 	}
 	
 	this.deselect = function() {
-		this.m_node.style.backgroundColor = "rgba(0, 0, 0, 0)";
+		$(this.m_node).removeClass("selected");
 	}
 	
 	var _this = this;

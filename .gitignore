@@ -6,5 +6,8 @@
 ehthumbs.db
 Thumbs.db
 
+platforms
+plugins
+
 _FACTORY_/Android
 _FACTORY_/iOS

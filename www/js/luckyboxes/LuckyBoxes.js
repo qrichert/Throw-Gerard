@@ -119,12 +119,6 @@ function getReward(t) {
 				DATA.addGems(5);
 			break;
 				
-			case LuckyGoldsRewards.GEM_10:
-				REWARD.style.backgroundImage = "url('img/luckyboxes/rewards/gem-R.png')";
-				AMOUNT.changeValue(10);
-				DATA.addGems(10);
-			break;
-				
 			case LuckyGoldsRewards.GERARD_ALOHA:
 				REWARD.style.backgroundImage = "url('img/luckyboxes/rewards/gerard-aloha-R.png')";
 				AMOUNT.changeValue("");
@@ -194,3 +188,5 @@ else if (DATA.getLuckyGolds() > 0) {
 else {
 	location.href = "index.html";
 }
+	
+document.addEventListener("touchmove", function(e) { e.preventDefault(); }, false);

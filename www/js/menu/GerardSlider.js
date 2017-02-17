@@ -209,6 +209,6 @@ if (!IS_TOUCHABLE) {
 
 /* Touch */
 
-document.querySelector("#characters-frame").addEventListener("touchstart",	function(e) { clickDown(e.changedTouches[0]); },	false);
-document.querySelector("#characters-frame").addEventListener("touchend",	function(e) { clickUp(e.changedTouches[0]); },		false);
-document.querySelector("#characters-frame").addEventListener("touchmove",	function(e) { clickMove(e.changedTouches[0]); },	false);
+document.querySelector("#characters-frame").addEventListener("touchstart",	function(e) { e.preventDefault(); clickDown(e.changedTouches[0]); },	false);
+document.querySelector("#characters-frame").addEventListener("touchend",	function(e) { e.preventDefault(); clickUp(e.changedTouches[0]); },		false);
+document.querySelector("#characters-frame").addEventListener("touchmove",	function(e) { e.preventDefault(); clickMove(e.changedTouches[0]); },	false);

@@ -65,16 +65,14 @@ var LuckyGoldsRewards = {
 	
 	GEM_1: 1,
 	GEM_5: 2,
-	GEM_10: 3,
 	
 	GERARD_ALOHA: 4
 }
 
 var LuckyGoldsRewardsFrequency = {
 	COINS_20:		{ FREQUENCY: 60,	TYPE: LuckyGoldsRewards.COINS_20		},
-	GEM_1:			{ FREQUENCY: 40,	TYPE: LuckyGoldsRewards.GEM_1			},
-	GEM_5:			{ FREQUENCY: 30,	TYPE: LuckyGoldsRewards.GEM_5			},
-	GEM_10:			{ FREQUENCY: 15,	TYPE: LuckyGoldsRewards.GEM_10			},
+	GEM_1:			{ FREQUENCY: 47,	TYPE: LuckyGoldsRewards.GEM_1			},
+	GEM_5:			{ FREQUENCY: 37,	TYPE: LuckyGoldsRewards.GEM_5			},
 	GERARD_ALOHA:	{ FREQUENCY: 3,		TYPE: LuckyGoldsRewards.GERARD_ALOHA	}
 }
 

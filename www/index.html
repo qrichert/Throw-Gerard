@@ -12,6 +12,8 @@
 		<title>Throw Gerard</title>
 	</head>
 	<body>
+		<div id="gems"><span class="gem"></span><span class="value">120</span></div>
+		<div id="coins"><span class="value">120</span><span class="coin"></span></div>
 		
 		<!-- !!! REMEMBER TO ALSO ADD ANY NEW CHARACTER TO THE ARRAY BELOW !!! -->
 		<div id="characters-frame">
@@ -23,8 +25,11 @@
 			</div>
 		</div>
 		
+		<a href="game.html" id="play"></a>
+		
 		<script type="text/javascript">
 			var SCREEN_WIDTH = parseInt(window.innerWidth, 10);
+			var SCREEN_HEIGHT = parseInt(window.innerHeight, 10);
 			
 			var IS_TOUCHABLE = true;
 			
@@ -32,6 +37,7 @@
 			IS_TOUCHABLE = false;
 		/*	<!-- --> */
 		</script>
+		
 		
 <!--		<script type="text/javascript" src="cordova.js"></script>-->
 		
@@ -41,62 +47,21 @@
 		
 		<script type="text/javascript" src="js/Data.js"></script>
 		<script type="text/javascript" src="js/menu/Characters.js"></script>
-		
-		<script type="text/javascript">
-			var characterWidth = 85;
-			var spacingWidth = 12;
-			
-			var charactersArray = new Array('normal', 'rambo', 'aloha');
-			var charactersObjectsArray = [];
-			
-			for (var i = 0; i < charactersArray.length; i++) {
-				var c = document.querySelector("#" + charactersArray[i]);
-					c.style.width = characterWidth + "px";
-					c.style.height = "85px";
-					c.style.left = (i * characterWidth) + (i * spacingWidth) + "px";
-				
-				charactersObjectsArray.push(new Character(c, charactersArray[i]));
-			}
-			
-			for (var i = 0; i < charactersObjectsArray.length; i++) {
-				charactersObjectsArray[i].getNode().addEventListener("click", function(e) {
-					
-					var target = e.target || e.srcElement;
-					var selectedCharacter = target.id;
-					
-					if (DATA.getCharacter(selectedCharacter) || selectedCharacter == "normal") {
-						DATA.selectCharacter(selectedCharacter);
-						
-						for (var j = 0; j < charactersObjectsArray.length; j++) {
-							if (selectedCharacter == charactersObjectsArray[j].getCharacter())
-								charactersObjectsArray[j].select();
-
-							else
-								charactersObjectsArray[j].deselect();
-						}
-					}
-					
-					else {
-						alert("character not unlocked!");
-					}
-					
-				}, false);
-				
-				if (DATA.getSelectedCharacter() == charactersObjectsArray[i].getCharacter())
-					charactersObjectsArray[i].select();
-			}
-			
-			document.querySelector("#characters").style.width = (charactersArray.length * characterWidth) + (charactersArray.length * spacingWidth) - spacingWidth + "px";
-		</script>
-		
-		
-		<script type="text/javascript" src="js/menu/GerardSlider.js"></script>
 		<script type="text/javascript" src="js/menu/GameMenu.js"></script>
+		<script type="text/javascript" src="js/menu/GerardSlider.js"></script>
 		
 		<script type="text/javascript">
-//			location.href = "game.html";
+			document.querySelector("#gems .value").innerHTML = DATA.getGems();
+			document.querySelector("#coins .value").innerHTML = DATA.getCoins();
+			
+			var playButtonTop = SCREEN_HEIGHT;
+				playButtonTop -= (SCREEN_HEIGHT / 2) + document.querySelector("#characters-frame").offsetHeight;
+				playButtonTop = (playButtonTop / 2) - (parseInt(document.querySelector("#play").offsetWidth, 10) / 2);
+				playButtonTop = (SCREEN_HEIGHT / 2) + document.querySelector("#characters-frame").offsetHeight + playButtonTop;
+			
+			document.querySelector("#play").style.left = (SCREEN_WIDTH / 2) - (parseInt(document.querySelector("#play").offsetWidth, 10) / 2) + "px";
+			document.querySelector("#play").style.top = playButtonTop + "px";
 		</script>
 		
-		<a href="game.html">Jouer !</a>
 	</body>
 </html>

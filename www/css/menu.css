@@ -20,16 +20,69 @@ body {
 	margin: 0;
 	padding: 0;
 	background: linear-gradient(#72ccd7, #a1dad8);
+	background-image: url("../img/game/set/game_background.png");
 	background-size: auto 100vh;
 	background-position: top center;
 	background-repeat: no-repeat;
 	overflow: hidden;
 }
 
-#characters-frame {
+#gems {
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	font-family: "QuentinHW", "Arial";
+	font-size: 20px;
+	line-height: 20px;
+	color: white;
+	text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+}
+
+#gems .gem {
+	display: inline-block;
+	width: 27px;
+	height: 27px;
+	background-image: url("../img/game/obstacles/gem.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#gems .value {
 	position: relative;
+	top: -8.5px;
+	right: -3px;
+}
+
+#coins {
+	position: absolute;
+	top: 12px;
+	right: 10px;
+	font-family: "QuentinHW", "Arial";
+	font-size: 20px;
+	line-height: 20px;
+	color: white;
+	text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+}
+
+#coins .coin {
+	display: inline-block;
+	width: 27px;
+	height: 27px;
+	background-image: url("../img/game/obstacles/coin.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#coins .value {
+	position: relative;
+	top: -8.5px;
+	right: 7px;
+}
+
+#characters-frame {
+	position: absolute;
+	top: 50vh;
 	height: 85px;
-	border: 1px solid yellow;
 }
 
 #characters {
@@ -39,7 +92,6 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 85px;
-	border: 1px solid blue;
 }
 
 .character {
@@ -53,9 +105,51 @@ body {
 	background-repeat: no-repeat;
 }
 
+@keyframes rotateSelectedCharacterBG {
+	from {
+		transform: rotate(0deg);
+	}
+	
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.character.selected:before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: -20px;
+	left: -10px; /* (105 - 85) / 2 */
+	width: 105px;
+	height: 105px;
+	z-index: -1;
+/*	background-color: blue;*/
+	background-image: url("../img/luckyboxes/bg-rays-2.png");
+	background-size: cover;
+	
+	animation: rotateSelectedCharacterBG 5s infinite linear;
+}
+
 #cable {
 	position: absolute;
 	width: 100vw;
 	height: 78px;
 	border-bottom: 2px solid black;
+}
+
+#play {
+	display: block;
+	position: absolute;
+	width: 108px;
+	height: 108px;
+	background-image: url("../img/menu/play.png");
+	background-size: 100px 100px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#play:hover,
+#play:active {
+	background-size: cover;
 }
