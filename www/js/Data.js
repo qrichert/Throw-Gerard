@@ -26,6 +26,15 @@ function Data() {
 	
 	// OTHER SPECIFIC FUNCTIONS
 	
+	/* LAST SCORE */
+		this.setLastScore = function(x) {
+			this.setValue("lastscore", x);
+		}
+		
+		this.getLastScore = function() {
+			return this.getValue("lastscore", true);
+		}
+	
 	/* BEST SCORE */
 		this.setBestScore = function(x) {
 			this.setValue("bestscore", x);

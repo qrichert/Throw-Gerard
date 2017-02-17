@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+/* FONTS */
+
+@font-face {
+	font-family: "QuentinHW";
+	src: url("fonts/Quentin's Handwriting.ttf") format('truetype'),
+	      url("fonts/Quentin's Handwriting.eot") format('eot');
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+	-webkit-touch-callout: none;		/* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;		/* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;		/* prevent copy paste, to allow, change 'none' to 'text' */
+	
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(#72ccd7, #a1dad8);
+	background-size: 100vw 100vh;
+	background-position: top center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+p {
+	font-family: "QuentinHW";
+	color: white;
+	font-size: 9vw;
+	line-height: 8vw;
+	text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+}
+
+#score {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	font-size: 20vw;
+	line-height: 19vw;
+}
+
+#new-best-score,
+#new-worst-score {
+	position: absolute;
+	display: none;
+}
+
+#reward-LB,
+#reward-Rambo {
+	position: absolute;
+	width: 50vw;
+	height: 50vw;
+	max-width: 200px;
+	max-height: 200px;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: none;
+}
+
+#reward-LB { background-image: url("../img/luckyboxes/luckybox-L.png"); }
+#reward-Rambo { background-image: url("../img/score/gerard-rambo-r.png"); }

@@ -424,25 +424,8 @@ function GerardOBJ() {
 					}
 					
 					else {
-						if (SCORE.getCurrentScore() > DATA.getBestScore()) {
-							DATA.setBestScore(SCORE.getCurrentScore());
-							LUCKYBOXES.addLuckyBox();
-							
-							alert("New high score!\nYou win a lucky box!");
-						}
-						
-						else if (SCORE.getCurrentScore() < DATA.getWorstScore()) {
-							DATA.setWorstScore(SCORE.getCurrentScore());
-							LUCKYBOXES.addLuckyBox();
-							
-							alert("New worst score!\nYou win a lucky box!");
-						}
-						
-						if (DATA.getLuckyBoxes() != 0 || DATA.getLuckyGolds() != 0)
-							location.href = "luckyboxes.html";
-						
-						else
-							location.href = "index.html";
+						DATA.setLastScore(SCORE.getCurrentScore());
+						location.href = "score.html";
 					}
 				}
 				
