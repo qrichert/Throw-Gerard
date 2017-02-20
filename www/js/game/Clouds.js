@@ -55,8 +55,8 @@ function Cloud() {
 		this.m_height = (CloudsArray[this.m_type - 1].m_height / 2) * sizeFactor;
 			this.m_cloud.style.height = this.m_height + "px";
 		
-		var MAX_d = 60;
-		var MIN_d = 20;
+		var MAX_d = 60; // Max duration
+		var MIN_d = 20; // Min duration
 		
 		this.m_duration = Math.floor((Math.random() * MAX_d) + MIN_d) * 1000; // Between 20s and 1min
 		
@@ -93,11 +93,9 @@ function Cloud() {
 		}
 	}
 	
-	this.animate = function(headStart) {
+	this.animate = function(headStart = false) {
 		
-		headStart = typeof headStart === "undefined" ? false : headStart;
-		
-		var initialPosX = -this.m_width;
+		var initialPosX = -this.m_width - 2;
 		
 				if (headStart) {
 					var initialPosX = Math.floor((Math.random() * SCREEN_WIDTH) + -this.m_width);
@@ -112,7 +110,7 @@ function Cloud() {
 		// Max: Just above cable, Min: Can be a bit out of frame
 			this.m_cloud.style.top = initialPosY + "px";
 
-		var finalPosX = SCREEN_WIDTH;
+		var finalPosX = SCREEN_WIDTH + 2;
 		
 		this.m_cloud.style.display = "block";
 		

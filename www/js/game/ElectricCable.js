@@ -99,7 +99,8 @@ var ELECTRIC_CABLE = new ElectricCable();
 
 function updateCableRequest() {
 	ELECTRIC_CABLE.updateCable();
-	setTimeout(updateCableRequest, FPS_48);
+//	setTimeout(updateCableRequest, FPS_48);
+	requestAnimationFrame(updateCableRequest);
 }
 
 updateCableRequest();

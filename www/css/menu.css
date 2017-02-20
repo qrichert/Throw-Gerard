@@ -27,6 +27,11 @@ body {
 	overflow: hidden;
 }
 
+#clouds {
+	width: 100vw;
+	height: 100vh;
+}
+
 #gems {
 	position: absolute;
 	top: 12px;
@@ -119,14 +124,15 @@ body {
 	content: " ";
 	display: block;
 	position: absolute;
-	top: -20px;
+	top: -19px;
 	left: -10px; /* (105 - 85) / 2 */
 	width: 105px;
 	height: 105px;
 	z-index: -1;
-/*	background-color: blue;*/
 	background-image: url("../img/luckyboxes/bg-rays-2.png");
-	background-size: cover;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
 	
 	animation: rotateSelectedCharacterBG 5s infinite linear;
 }
