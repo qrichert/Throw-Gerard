@@ -1137,11 +1137,38 @@ function getRandomOBJType() {
 	}
 }
 
+var maxPossibleObjects = Math.round(SCREEN_WIDTH / 53);
+
+	if (maxPossibleObjects < 4)
+		maxPossibleObjects = 4;
+
+	else if (maxPossibleObjects > 12)
+		maxPossibleObjects = 12;
+
+	var firstStepNB = Math.round(maxPossibleObjects / 3);			// 1/3
+	var secondStepNB = Math.round((maxPossibleObjects / 3) * 2);	// 2/3
+
 var obstacleList = new Array();
 
-	for (var i = 0; i < 6; i++) { // 6 obstacles ; MAKE IT PROPORTIONAL TO THE SCREEN
+	for (var i = 0; i < firstStepNB; i++) {
 		obstacleList.push(new Obstacle(getRandomOBJType()));
 	}
+
+		setTimeout(function() {
+			var x = secondStepNB - firstStepNB;
+			
+				for (i = 0; i < x; i++) {
+					obstacleList.push(new Obstacle(getRandomOBJType()));
+				}
+			
+					setTimeout(function() {
+						x = maxPossibleObjects - secondStepNB;
+
+							for (i = 0; i < x; i++) {
+								obstacleList.push(new Obstacle(getRandomOBJType()));
+							}
+					}, 5000);
+		}, 5000);
 
 
 function addObstacle() {
