@@ -10,6 +10,7 @@
 
 * {
 	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+	cursor: pointer;
 }
 
 body {
@@ -32,7 +33,6 @@ p {
 	font-size: 9vw;
 	line-height: 8vw;
 	text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
-	cursor: pointer;
 }
 
 #score {

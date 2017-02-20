@@ -70,6 +70,8 @@ function SaveMe() {
 
 var SAVE_ME = new SaveMe();
 
-document.querySelector("#save-me").addEventListener("click", function() {
-	SAVE_ME.accept();
-}, false);
+if (!IS_TOUCHABLE) {
+	document.querySelector("#save-me").addEventListener("click", function() { SAVE_ME.accept(); }, false);
+}
+
+document.querySelector("#save-me").addEventListener("touchend", function() { SAVE_ME.accept(); }, false);

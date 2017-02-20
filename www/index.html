@@ -29,14 +29,33 @@
 		
 		<a href="game.html" id="play"></a>
 		
+		<script type="text/javascript" src="js/Data.js"></script>
+		
 		<script type="text/javascript">
+			DATA.checkFirstOpen();
+			
 			var SCREEN_WIDTH = parseInt(window.innerWidth, 10);
 			var SCREEN_HEIGHT = parseInt(window.innerHeight, 10);
 			
-			var IS_TOUCHABLE = true;
+			DATA.setUseClouds(false);
 			
 		/* <!-- FOR TEST --> */
-			IS_TOUCHABLE = false;
+			var TestType = {
+				NONE: "none",
+				DEVICE: "device",
+				COMPUTER: "computer"
+			}
+			
+			DATA.setTestType(TestType.COMPUTER);
+			
+			var IS_TOUCHABLE = null;
+			
+			switch (DATA.getTestType()) {
+				case "computer":	IS_TOUCHABLE = false;	break;
+				case "device":		IS_TOUCHABLE = true;	break;
+				default:			IS_TOUCHABLE = true;	break;
+			}
+			
 		/*	<!-- --> */
 			
 			var FPS_18 = Math.round(1000 / 18); // For Clouds.js
@@ -51,7 +70,6 @@
 		
 		<script type="text/javascript" src="js/game/Clouds.js"></script>
 		
-		<script type="text/javascript" src="js/Data.js"></script>
 		<script type="text/javascript" src="js/menu/Characters.js"></script>
 		<script type="text/javascript" src="js/menu/GameMenu.js"></script>
 		<script type="text/javascript" src="js/menu/GerardSlider.js"></script>

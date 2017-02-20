@@ -28,29 +28,29 @@ function Data() {
 	
 	/* LAST SCORE */
 		this.setLastScore = function(x) {
-			this.setValue("lastscore", x);
+			this.setValue("last-score", x);
 		}
 		
 		this.getLastScore = function() {
-			return this.getValue("lastscore", true);
+			return this.getValue("last-score", true);
 		}
 	
 	/* BEST SCORE */
 		this.setBestScore = function(x) {
-			this.setValue("bestscore", x);
+			this.setValue("best-score", x);
 		}
 
 		this.getBestScore = function() {
-			return this.getValue("bestscore", true);
+			return this.getValue("best-score", true);
 		}
 		
 	/* WORST SCORE */
 		this.setWorstScore = function(x) {
-			this.setValue("worstscore", x);
+			this.setValue("worst-score", x);
 		}
 
 		this.getWorstScore = function() {
-			return this.getValue("worstscore", true);
+			return this.getValue("worst-score", true);
 		}
 	
 	/* COINS */
@@ -150,6 +150,40 @@ function Data() {
 		
 		this.getGerardAloha = function() {
 			return this.getValue("gerard-aloha") == "true" ? true : false;
+		}
+		
+	/* SETTINGS */
+		
+	// First Open
+		
+		this.checkFirstOpen = function() {
+			var firstOpen = localStorage.getItem("first-open");
+			
+			if (firstOpen != "false") {
+				this.setValue("first-open", "false");
+				this.setValue("use-clouds", "true");
+			}
+		}
+		
+	// Clouds
+		this.setUseClouds = function(b) {
+			
+			var bool = b == true ? "true" : "false";
+			this.setValue("use-clouds", bool);
+		}
+		
+		this.getUseClouds = function() {
+			return this.getValue("use-clouds") == "true" ? true : false;
+		}
+		
+	// Test Type
+		
+		this.setTestType = function(t) {
+			this.setValue("test-type", t);
+		}
+	
+		this.getTestType = function() {
+			return this.getValue("test-type");
 		}
 }
 

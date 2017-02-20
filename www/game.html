@@ -63,19 +63,18 @@
 				default:		CHARACTER = Characters.NORMAL;	break;
 			}
 			
-			var SET_useClouds		= true;
-			var SET_useElectricity	= true;
+			var SET_useClouds		= DATA.getUseClouds();
+			var SET_useElectricity	= true; // Always in real game
 			
-			var IS_REAL_DEVICE = true;
-			var IS_TOUCHABLE = true;
+			var IS_REAL_DEVICE = null; // PhoneGap functions
+			var IS_TOUCHABLE = null; // Touch events (or touch screen)
+
+			switch (DATA.getTestType()) {
+				case "computer":	IS_REAL_DEVICE = false;	IS_TOUCHABLE = false;	break;
+				case "device":		IS_REAL_DEVICE = false;	IS_TOUCHABLE = true;	break;
+				default:			IS_REAL_DEVICE = true;	IS_TOUCHABLE = true;	break;
+			}
 			
-		/* <!-- FOR TEST --> */
-			SET_useClouds		= false;
-			SET_useElectricity	= false;
-		/*	<!-- --> */
-			IS_REAL_DEVICE	= false; // No PhoneGap functions
-			IS_TOUCHABLE	= false; // No touch events (or touch screen)
-		/*	<!-- --> */
 		</script>
 		
 	<!-- Pre loading --> 
