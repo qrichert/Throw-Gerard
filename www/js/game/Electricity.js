@@ -103,7 +103,9 @@ function newElectricCurrent() {
 				
 				if (((now + ELECTRICITY.getWidth()) >= GerardPosX + R) && (now <= (GerardPosX + GERARD.getWidth() - R))) {
 					SOUND.playElectricity();
-/**/				GERARD.dieMotherfucker(); /**/
+
+					if (CHARACTER != Characters.ALOHA)
+						GERARD.dieMotherfucker();
 				}
 
 				var currentProgress = 0; // Y value factor of electricity
