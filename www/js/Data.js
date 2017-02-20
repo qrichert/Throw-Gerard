@@ -154,17 +154,6 @@ function Data() {
 		
 	/* SETTINGS */
 		
-	// First Open
-		
-		this.checkFirstOpen = function() {
-			var firstOpen = localStorage.getItem("first-open");
-			
-			if (firstOpen != "false") {
-				this.setValue("first-open", "false");
-				this.setValue("use-clouds", "true");
-			}
-		}
-		
 	// Clouds
 		this.setUseClouds = function(b) {
 			
@@ -184,6 +173,20 @@ function Data() {
 	
 		this.getTestType = function() {
 			return this.getValue("test-type");
+		}
+
+	// First Open
+
+		this.checkFirstOpen = function() {
+			var firstOpen = localStorage.getItem("first-open");
+
+			if (firstOpen != "false") {
+				this.setValue("first-open", "false");
+
+				this.setUseClouds(true);
+				this.addGems(5);
+				this.addCoins(20);
+			}
 		}
 }
 
