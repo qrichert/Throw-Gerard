@@ -72,11 +72,11 @@ function GerardOBJ() {
 	
 		this.setPosX = function(pos) {
 			if (this.m_currentPhase != PhaseType.DIE) {
-				if (pos < POLE_WIDTH) // Far left
-					pos = POLE_WIDTH;
+				if (pos < POLE_WIDTH - 9) // Far left
+					pos = POLE_WIDTH - 9;
 
-				if ((pos + this.m_width) > (SCREEN_WIDTH - POLE_WIDTH)) // Far right
-					pos = (SCREEN_WIDTH - POLE_WIDTH) - this.m_width;
+				if ((pos + this.m_width) > (SCREEN_WIDTH - POLE_WIDTH + 9)) // Far right
+					pos = (SCREEN_WIDTH - POLE_WIDTH) - this.m_width + 9;
 			}
 			
 			else {
@@ -417,17 +417,6 @@ function GerardOBJ() {
 				
 				else {
 					SAVE_ME.ask(_this);
-//					if (SAVE_ME.ask()) {
-//						LIVES.addLife();
-//						_this.setGiveNewLife();
-//						SOUND.playHeart();
-//						_this.putGerardBackOnCable();
-//					}
-//					
-//					else {
-//						DATA.setLastScore(SCORE.getCurrentScore());
-//						location.href = "score.html";
-//					}
 				}
 				
 				angelToHeaven(finalPosX, finalPosY);

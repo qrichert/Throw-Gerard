@@ -65,17 +65,6 @@ function SaveMe() {
 		
 		this.m_continueTimer = true;
 		this.timer(Date.now());
-		
-//		this.m_progress.style.width = "100%";
-//		var startTime = Date.now();
-//		
-//		document.querySelector("#save-me-button").addEventListener("click", function() {
-//			DATA.removeGems(this.m_gemsNeeded);
-//			
-//			this.m_gemsNeeded *= 2;
-//			
-//			return true;
-//		}, false);
 	}
 }
 
