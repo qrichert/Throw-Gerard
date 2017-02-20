@@ -153,33 +153,69 @@ body {
 	text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
 }
 
-#save-me {
+#save-me-container {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	margin: 0;
-	padding: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	padding: 0px;
+	background-color: rgba(0, 0, 0, 0.1);
+	cursor: pointer;
 	display: none;
 }
 
-#save-me p {
+#save-me {
+	position: absolute;
+	width: 70vw;
+	background: linear-gradient(#e8a40e, #f4bb3d);
+	border: 3px solid black;
+	border-radius: 3vw;
+	margin: 0;
+	padding: 0;
 	color: white;
 	font-weight: bold;
+	font-family: "QuentinHW";
+}
+
+#save-me > p,
+#save-me #gems-needed {
+	text-align: center;
+	font-size: 25px;
+	margin: 0;
+}
+
+#save-me #nb-of-gems {
+	font-size: 25px;
+	line-height: 25px;
+}
+
+#save-me #gem-img {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-left: 4px;
+	background-image: url('../img/game/obstacles/gem.png');
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: relative;
+	bottom: -5px;
 }
 
 #save-me #progress-bar {
 	width: 90%;
-	height: 12px;
-	margin: auto;
+	height: 10px;
+	margin: 5px auto 5px auto;
 	border: 1px solid black;
+	border-radius: 5px;
 }
 
 #save-me #progress {
-	width: 50%;
+	width: 100%; /* Progress of the bar. */
 	height: 100%;
-	background-color: linear-gradient(90deg, greenyellow, mediumseagreen);
-	background-color: lime;
+	background: linear-gradient(90deg, #28a828, #40c340);
+	border-radius: 5px;
 }
+

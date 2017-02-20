@@ -416,17 +416,18 @@ function GerardOBJ() {
 				}
 				
 				else {
-					if (SAVE_ME.ask()) {
-						LIVES.addLife();
-						_this.setGiveNewLife();
-						SOUND.playHeart();
-						_this.putGerardBackOnCable();
-					}
-					
-					else {
-						DATA.setLastScore(SCORE.getCurrentScore());
-						location.href = "score.html";
-					}
+					SAVE_ME.ask(_this);
+//					if (SAVE_ME.ask()) {
+//						LIVES.addLife();
+//						_this.setGiveNewLife();
+//						SOUND.playHeart();
+//						_this.putGerardBackOnCable();
+//					}
+//					
+//					else {
+//						DATA.setLastScore(SCORE.getCurrentScore());
+//						location.href = "score.html";
+//					}
 				}
 				
 				angelToHeaven(finalPosX, finalPosY);

@@ -5,27 +5,82 @@
 function SaveMe() {
 	this.m_node = document.querySelector("#save-me");
 	this.m_progress = document.querySelector("#save-me #progress");
+	this.m_container = document.querySelector("#save-me-container");
 	
 	this.m_gemsNeeded = 1;
+	this.m_gerardRef = null;
+	this.m_continueTimer = false;
+	this.m_timeoutDelay = 2500;
 	
-	this.ask = function() {
+	this.timer = function(t) {
 		
-		if ((DATA.getGems() - this.m_gemsNeeded) < 0) // Not enough gems
-			return false;
-		
-		if (confirm("Save me?\nUse " + this.m_gemsNeeded + " of your " + DATA.getGems() + " gems to get saved !")) {
-			
-			DATA.removeGems(this.m_gemsNeeded);
-			
-			this.m_gemsNeeded *= 2;
-			
-			return true;
+		if ((Date.now() - t) >= this.m_timeoutDelay) {
+			this.decline();
+			return;
 		}
 		
-		else {
-			return false;
+		this.m_progress.style.width = 100 - (((Date.now() - t) / this.m_timeoutDelay) * 100) + "%";
+		
+		var _this = this;
+		
+		if (this.m_continueTimer)
+			requestAnimationFrame(function() { _this.timer(t); });
+	}
+	
+	this.accept = function() {
+		this.m_continueTimer = false;
+		
+		DATA.removeGems(this.m_gemsNeeded);
+		this.m_gemsNeeded *= 2;
+		
+		LIVES.addLife();
+		SOUND.playHeart();
+		
+		if (this.m_gerardRef != null) {
+			this.m_gerardRef.setGiveNewLife();
+			this.m_gerardRef.putGerardBackOnCable();
 		}
+		
+		this.m_container.style.display = "none";
+		this.m_progress.style.width = "100%";
+	}
+	
+	this.decline = function() {
+		DATA.setLastScore(SCORE.getCurrentScore());
+		location.href = "score.html";
+	}
+	
+	this.ask = function(gRef) {
+		
+		if ((DATA.getGems() - this.m_gemsNeeded) < 0) // Not enough gems !!! Not <= cause if has 1 gem can spend 1 gem
+			this.decline();
+		
+		this.m_gerardRef = gRef;
+		
+		document.querySelector("#save-me #nb-of-gems").innerHTML = this.m_gemsNeeded;
+		
+		this.m_container.style.display = "block";
+			this.m_node.style.left = (SCREEN_WIDTH / 2) - (this.m_node.offsetWidth / 2) + "px";
+			this.m_node.style.top = (SCREEN_HEIGHT / 2) - (this.m_node.offsetHeight / 2) - 50 + "px";
+		
+		this.m_continueTimer = true;
+		this.timer(Date.now());
+		
+//		this.m_progress.style.width = "100%";
+//		var startTime = Date.now();
+//		
+//		document.querySelector("#save-me-button").addEventListener("click", function() {
+//			DATA.removeGems(this.m_gemsNeeded);
+//			
+//			this.m_gemsNeeded *= 2;
+//			
+//			return true;
+//		}, false);
 	}
 }
 
 var SAVE_ME = new SaveMe();
+
+document.querySelector("#save-me").addEventListener("click", function() {
+	SAVE_ME.accept();
+}, false);
