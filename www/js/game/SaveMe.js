@@ -19,7 +19,12 @@ function SaveMe() {
 			return;
 		}
 		
-		this.m_progress.style.width = 100 - (((Date.now() - t) / this.m_timeoutDelay) * 100) + "%";
+		var progressWidth = 100 - (((Date.now() - t) / this.m_timeoutDelay) * 100);
+		
+			if (progressWidth < 3)
+				this.m_progress.style.display = "none";
+		
+		this.m_progress.style.width = progressWidth + "%";
 		
 		var _this = this;
 		
@@ -58,6 +63,8 @@ function SaveMe() {
 		this.m_gerardRef = gRef;
 		
 		document.querySelector("#save-me #nb-of-gems").innerHTML = this.m_gemsNeeded;
+		
+		this.m_progress.style.display = "block";
 		
 		this.m_container.style.display = "block";
 			this.m_node.style.left = (SCREEN_WIDTH / 2) - (this.m_node.offsetWidth / 2) + "px";
