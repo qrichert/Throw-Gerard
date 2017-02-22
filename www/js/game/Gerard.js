@@ -708,7 +708,13 @@ function checkCollisions(now) {
 				switch (o.getObstacleEffect()) {
 					case ObstacleEffect.PLUS_FIVE:		SCORE.addToScore(5);		break;
 					case ObstacleEffect.PLUS_TEN:		SCORE.addToScore(10);		break;
-					case ObstacleEffect.PLUS_FIFTY:		SCORE.addToScore(50);		break;
+						
+					case ObstacleEffect.PLUS_FIFTY:
+						if (CHARACTER == Characters.OBELIX)
+							SCORE.addToScore(100);
+						else
+							SCORE.addToScore(50);
+					break;
 						
 					case ObstacleEffect.SHELTER:
 						GERARD.setSheltered(true, Math.floor(Math.random() * 10000 + 5000));

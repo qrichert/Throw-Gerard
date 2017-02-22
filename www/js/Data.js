@@ -152,6 +152,26 @@ function Data() {
 			return this.getValue("gerard-aloha") == "true" ? true : false;
 		}
 		
+	// Obelix
+		this.unlockGerardObelix = function() {
+			this.setValue("gerard-obelix", "true");
+		}
+		
+		this.getGerardObelix = function() {
+			return this.getValue("gerard-obelix") == "true" ? true : false;
+		}
+		
+		this.addFoodPlusEaten = function() {
+			var fpe = this.getValue("foodplus-eaten", true);
+			fpe++;
+			
+			this.setValue("foodplus-eaten", fpe);
+			
+			if (fpe >= 3000) {
+				this.unlockGerardObelix();
+			}
+		}
+		
 	/* SETTINGS */
 		
 	// Clouds

@@ -5,7 +5,7 @@
 var characterWidth = 85;
 	var spacingWidth = 12;
 	
-var charactersArray = new Array('normal', 'rambo', 'aloha');
+var charactersArray = new Array('normal', 'rambo', 'aloha', 'obelix');
 var charactersObjectsArray = [];
 	
 for (var i = 0; i < charactersArray.length; i++) {

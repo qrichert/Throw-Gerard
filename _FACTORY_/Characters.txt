@@ -1,0 +1,14 @@
+RAMBO:
+
+Unlock: Score 2000+
+Bonus: Starts with 4 lives.
+
+ALOHA:
+
+Unlock: Lucky Gold
+Bonus: Doesn’t die on cable electricity
+
+OBELIX:
+
+Unlock: Collect 3000 foodplus
+Bonus: Double foodplus reward (100 instead of 50).

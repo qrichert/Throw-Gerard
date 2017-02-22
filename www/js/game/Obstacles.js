@@ -1052,6 +1052,9 @@ function Obstacle(type) {
 				this.getRidOf();
 			}
 			
+			if (this.m_type == ObstacleType.FOODPLUS)
+				DATA.addFoodPlusEaten();
+			
 //			else
 //				setHitByUfo(true);
 			

@@ -5,6 +5,8 @@
 function Vibration() {
 	this.vibrate = function(time = 700) {
 		
+		return;
+		
 		if ("vibrate" in navigator)
 			navigator.vibrate(time);
 		
