@@ -69,6 +69,13 @@ function Data() {
 			return this.getValue("coins", true);
 		}
 		
+		this.setCoins = function(x) {
+			x = parseInt(x, 10);
+			
+			if (!isNaN(x))
+				this.setValue("coins", x);
+		}
+		
 	/* GEMS */
 		this.addGems = function(x) {
 			this.setValue("gems", (this.getValue("gems", true) + x));
@@ -83,6 +90,13 @@ function Data() {
 
 		this.getGems = function() {
 			return this.getValue("gems", true);
+		}
+		
+		this.setGems = function(x) {
+			x = parseInt(x, 10);
+			
+			if (!isNaN(x))
+				this.setValue("gems", x);
 		}
 		
 	/* LUCKY BOXES */
@@ -211,4 +225,3 @@ function Data() {
 }
 
 var DATA = new Data();
-//DATA.clear();
