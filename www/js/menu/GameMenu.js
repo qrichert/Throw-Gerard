@@ -35,19 +35,47 @@ function selectCharachterOnClick(target) {
 		}
 
 		else {
-//			alert("character not unlocked!");
+			if (selectedCharacter == "rambo") {
+				alert('Rambo\nStart with a bonus heart');
+			}
+			
+			else if (selectedCharacter == "aloha") {
+				alert('Aloha\nResistant to cable electricity');
+			}
+			
+			else if (selectedCharacter == "obelix") {
+				alert('Obelix\nDouble food plus value')
+			}
 		}
 }
+
+var clickSart = false;
 	
 for (var i = 0; i < charactersObjectsArray.length; i++) {
 	if (!IS_TOUCHABLE) {
-		charactersObjectsArray[i].getNode().addEventListener("click", function(e) {
+		charactersObjectsArray[i].getNode().addEventListener("mousedown", function() { clickSart = true; }, false);
+		
+		charactersObjectsArray[i].getNode().addEventListener("mouseup", function(e) {
+			
+			if (!clickSart)
+				return;
+			
+			clickSart = false;
+			
 			var target = e.target || e.srcElement;
 			selectCharachterOnClick(target);
 		}, false);
 	}
 	
+	charactersObjectsArray[i].getNode().addEventListener("touchstart", function() { clickSart = true; }, false);
+	
 	charactersObjectsArray[i].getNode().addEventListener("touchend", function(e) {
+		
+		if (!clickSart)
+			return;
+		
+		clickSart = false;
+		
 		var target = e.target || e.srcElement;
 		selectCharachterOnClick(target);
 	}, false);

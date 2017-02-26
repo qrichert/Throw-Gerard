@@ -195,6 +195,7 @@ function clickMove(e) {
 		return;
 	
 	if (SLIDER.getTouchHappening()) {
+		clickSart = false;
 		SLIDER.setPosX(e.clientX);
 	}
 }

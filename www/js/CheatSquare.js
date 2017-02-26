@@ -37,7 +37,7 @@ cheatSquare.addEventListener("click", function() {
 		}
 		
 		else if (passwd == "clear") {
-			if (confirm("Are you sure ?")) {
+			if (confirm("Are you sure?")) {
 				DATA.clear();
 				location.href = "index.html";
 			}
