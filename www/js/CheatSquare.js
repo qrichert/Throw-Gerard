@@ -6,14 +6,14 @@ var cheatSquare = document.createElement("div");
 	cheatSquare.style.position = "absolute";
 	cheatSquare.style.right = "0px";
 	cheatSquare.style.bottom = "0px";
-	cheatSquare.style.width = "25px";
-	cheatSquare.style.height = "25px";
+	cheatSquare.style.width = "40px";
+	cheatSquare.style.height = "40px";
 	cheatSquare.style.backgroundColor = "rgba(0, 0, 0, 0)";
 		document.querySelector("body").appendChild(cheatSquare);
 
 var nbClicks = 0;
 
-cheatSquare.addEventListener("click", function() {
+function cheatSquareClick() {
 	nbClicks++;
 	
 	if (nbClicks >= 100) {
@@ -43,4 +43,10 @@ cheatSquare.addEventListener("click", function() {
 			}
 		}
 	}
-}, false);
+}
+
+if (!IS_TOUCHABLE) {
+	cheatSquare.addEventListener("mouseup", function() { cheatSquareClick(); }, false);
+}
+
+cheatSquare.addEventListener("touchend", function() { cheatSquareClick(); }, false);
