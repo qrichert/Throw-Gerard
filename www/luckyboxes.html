@@ -15,11 +15,19 @@
 		<title>Throw Gerard</title>
 	</head>
 	<body>
+		<script type="text/javascript" src="js/Data.js"></script>
+		
 		<script type="text/javascript">
+			var IS_TOUCHABLE = null;
+			
+			switch (DATA.getTestType()) {
+				case "computer":	IS_TOUCHABLE = false;	break;
+				case "device":		IS_TOUCHABLE = true;	break;
+				default:			IS_TOUCHABLE = true;	break;
+			}
+			
 //			new Audio('audio/luckyboxes/music.mp3').play(); // Make it an HTML 5 element.
 		</script>
-		
-		<script type="text/javascript" src="js/Data.js"></script>
 		
 		<script type="text/javascript" src="js/jquery/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery/jquery.easing.1.3.js"></script>

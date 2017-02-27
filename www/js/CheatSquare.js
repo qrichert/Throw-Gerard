@@ -32,6 +32,8 @@ function cheatSquareClick() {
 			
 			DATA.setGems(prompt("Gems", DATA.getGems()));
 			DATA.setCoins(prompt("Coins", DATA.getCoins()));
+			DATA.addLuckyBoxes(parseInt(prompt("Add Lucky Boxes", 0), 10));
+			DATA.addLuckyGolds(parseInt(prompt("Add Lucky Golds", 0), 10));
 			
 			location.href = "index.html";
 		}
