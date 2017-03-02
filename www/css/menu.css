@@ -159,3 +159,13 @@ body {
 #play:active {
 	background-size: cover;
 }
+
+#daily-reward {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(#72ccd7, #a1dad8);
+	display: none;
+}

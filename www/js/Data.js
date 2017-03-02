@@ -222,6 +222,30 @@ function Data() {
 				this.addCoins(20);
 			}
 		}
+		
+	// Daily Reward
+		
+		this.getDailyReward = function() {
+			var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+			
+			var d = days[new Date().getDay()];
+			
+			if (this.getValue("daily-reward") != d) {
+				this.setValue("daily-reward", d);
+				
+				return true;
+			}
+			
+			return false;
+		}
+		
+		this.getDailyRewardPuzzle = function(p) { // true = already has it
+			return this.getValue("puzzle-piece-" + p) == "true" ? true : false;
+		}
+		
+		this.setGotDailyRewardPuzzle = function(p) {
+			this.setValue("puzzle-piece-" + p, "true");
+		}
 }
 
 var DATA = new Data();
