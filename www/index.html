@@ -14,8 +14,8 @@
 	<body>
 		<div id="clouds"></div> <!-- Using the same file as in game.html, copied CSS -->
 		
-		<div id="gems"><span class="gem"></span><span class="value">120</span></div>
-		<div id="coins"><span class="value">120</span><span class="coin"></span></div>
+		<div id="gems"><span class="gem"></span><span class="value"></span></div>
+		<div id="coins"><span class="value"></span><span class="coin"></span></div>
 		
 		<!-- !!! REMEMBER TO ALSO ADD ANY NEW CHARACTER TO THE ARRAY IN <GameMenu.js>, UPDATE <game.html> !!! -->
 		<div id="characters-frame">
@@ -87,7 +87,11 @@
 		
 		<script type="text/javascript" src="js/CheatSquare.js"></script>
 		
-		<div id="daily-reward"></div>
+		<div id="daily-reward">
+			<p>Daily Reward</p>
+			<div id="reward-img"></div>
+			<div id="puzzle-img"></div>
+		</div>
 		
 		<script type="text/javascript" src="js/menu/DailyReward.js"></script>
 	</body>

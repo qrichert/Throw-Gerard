@@ -104,7 +104,7 @@ var SLIDER = new GerardSlider(document.querySelector("#characters"), charactersA
 /* Initializing */
 
 if (SLIDER.getWidth() > SCREEN_WIDTH) {
-	SLIDER.setRawPosX(50);
+	SLIDER.setRawPosX(25);
 }
 		
 else { // Go back to center
@@ -130,11 +130,11 @@ function clickUp(e) {
 		
 		if (SLIDER.getWidth() > SCREEN_WIDTH) {
 			
-			if ((SLIDER.getPosX() + SLIDER.getWidth()) < (SCREEN_WIDTH - 50)) {
+			if ((SLIDER.getPosX() + SLIDER.getWidth()) < (SCREEN_WIDTH - 25)) {
 				
 				SLIDER.setIsMovable(false);
 				
-				$({ posX: SLIDER.getPosX() }).animate({ posX: (SCREEN_WIDTH - 50) - SLIDER.getWidth() }, {
+				$({ posX: SLIDER.getPosX() }).animate({ posX: (SCREEN_WIDTH - 25) - SLIDER.getWidth() }, {
 					duration: 600,
 					easing: "easeOutElastic",
 					step: function (now) {
@@ -142,17 +142,17 @@ function clickUp(e) {
 					},
 					
 					complete: function() {
-						SLIDER.setRawPosX((SCREEN_WIDTH - 50) - SLIDER.getWidth());
+						SLIDER.setRawPosX((SCREEN_WIDTH - 25) - SLIDER.getWidth());
 						SLIDER.setIsMovable(true);
 					}
 				});
 			}
 
-			if (SLIDER.getPosX() > 50) {
+			if (SLIDER.getPosX() > 25) {
 				
 				SLIDER.setIsMovable(false);
 				
-				$({ posX: SLIDER.getPosX() }).animate({ posX: 50 }, {
+				$({ posX: SLIDER.getPosX() }).animate({ posX: 25 }, {
 					duration: 600,
 					easing: "easeOutElastic",
 					step: function (now) {
@@ -160,7 +160,7 @@ function clickUp(e) {
 					},
 					
 					complete: function() {
-						SLIDER.setRawPosX(50);
+						SLIDER.setRawPosX(25);
 						SLIDER.setIsMovable(true);
 					}
 				});

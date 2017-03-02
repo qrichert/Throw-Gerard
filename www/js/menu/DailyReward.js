@@ -106,21 +106,25 @@ function DailyReward() {
 		
 		if (r == DailyRewards.GEM_1) {
 			DATA.addGems(1);
+			document.querySelector("#gems .value").innerHTML = DATA.getGems();
 			alert("gem 1");
 		}
 			
 		else if (r == DailyRewards.GEM_5) {
 			DATA.addGems(5);
+			document.querySelector("#gems .value").innerHTML = DATA.getGems();
 			alert("gem 5");
 		}
 			
 		else if (r == DailyRewards.COIN_10) {
 			DATA.addCoins(10);
+			document.querySelector("#coins .value").innerHTML = DATA.getCoins();
 			alert("coin 10");
 		}
 			
 		else if (r == DailyRewards.COIN_50) {
 			DATA.addCoins(50);
+			document.querySelector("#coins .value").innerHTML = DATA.getCoins();
 			alert("coin 50");
 		}
 			
@@ -161,7 +165,7 @@ function DailyReward() {
 	}
 }
 
-if (!DATA.getDailyReward()) {
+if (DATA.getDailyReward()) {
 	DAILY_REWARD = new DailyReward();
 		DAILY_REWARD.setUpView();
 }
