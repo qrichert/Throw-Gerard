@@ -107,25 +107,29 @@ function DailyReward() {
 		if (r == DailyRewards.GEM_1) {
 			DATA.addGems(1);
 			document.querySelector("#gems .value").innerHTML = DATA.getGems();
-			alert("gem 1");
+			document.querySelector("#reward-img").style.backgroundImage = "url('img/menu/daily-reward/gem-DR.png')";
+			document.querySelector("#reward-amount").innerHTML = "1";
 		}
 			
 		else if (r == DailyRewards.GEM_5) {
 			DATA.addGems(5);
 			document.querySelector("#gems .value").innerHTML = DATA.getGems();
-			alert("gem 5");
+			document.querySelector("#reward-img").style.backgroundImage = "url('img/menu/daily-reward/gem-DR.png')";
+			document.querySelector("#reward-amount").innerHTML = "5";
 		}
 			
 		else if (r == DailyRewards.COIN_10) {
 			DATA.addCoins(10);
 			document.querySelector("#coins .value").innerHTML = DATA.getCoins();
-			alert("coin 10");
+			document.querySelector("#reward-img").style.backgroundImage = "url('img/menu/daily-reward/coin-DR.png')";
+			document.querySelector("#reward-amount").innerHTML = "10";
 		}
 			
 		else if (r == DailyRewards.COIN_50) {
 			DATA.addCoins(50);
 			document.querySelector("#coins .value").innerHTML = DATA.getCoins();
-			alert("coin 50");
+			document.querySelector("#reward-img").style.backgroundImage = "url('img/menu/daily-reward/coin-DR.png')";
+			document.querySelector("#reward-amount").innerHTML = "50";
 		}
 			
 		else if (r == DailyRewards.PUZZLE_1) {
