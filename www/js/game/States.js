@@ -123,11 +123,11 @@ function State(stateType, target, eyesTarget) { // target = HTML object
 			// 24 images | x:12 y:2 | 94x80 | 1128x160
 			
 			for (i = 0; i < 12; i++) { // 1st line
-				this.m_animationFramesPos.push({ X: (47 * i), Y: 0 }); // Attention !!! Not in raw image size value, because background-image is scaled to fit Gerard's size !!!
+				this.m_animationFramesPos.push({ X: -(47 * i), Y: 0 }); // Attention !!! Not in raw image size value, because background-image is scaled to fit Gerard's size !!!
 			}
 			
 			for (i = 0; i < 12; i++) { // 2nd line
-				this.m_animationFramesPos.push({ X: (47 * i), Y: -40 });
+				this.m_animationFramesPos.push({ X: -(47 * i), Y: -40 });
 			}
 		}
 	
@@ -138,11 +138,11 @@ function State(stateType, target, eyesTarget) { // target = HTML object
 			// 30 images | x:15 y:2 | 94x130 |
 			
 			for (i = 0; i < 15; i++) { // 1st line
-				this.m_animationFramesPos.push({ X: (47 * i), Y: 0 });
+				this.m_animationFramesPos.push({ X: -(47 * i), Y: 0 });
 			}
 			
 			for (i = 0; i < 15; i++) { // 2nd line
-				this.m_animationFramesPos.push({ X: (47 * i), Y: -65 });
+				this.m_animationFramesPos.push({ X: -(47 * i), Y: -65 });
 			}
 		}
 	
