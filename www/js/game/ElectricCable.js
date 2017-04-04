@@ -13,15 +13,7 @@ var CableState = {
 
 function ElectricCable() {
 	this.m_electricCable = document.querySelector("#electric-cable");
-		this.m_electricCable.style.left = "0px";
-		this.m_electricCable.style.top = "0px";
-	
 	this.m_cableCanvas = this.m_electricCable.getContext("2d");
-		this.m_cableCanvas.canvas.width = SCREEN_WIDTH;
-		this.m_cableCanvas.canvas.height = SCREEN_HEIGHT;
-		this.m_cableCanvas.lineWidth = 1;
-		this.m_cableCanvas.lineJoin = "round";
-		this.m_cableCanvas.strokeStyle = "black";
 
 	if (window.devicePixelRatio > 1) {
 
@@ -35,6 +27,20 @@ function ElectricCable() {
 
 		this.m_cableCanvas.scale(window.devicePixelRatio, window.devicePixelRatio);
 	}
+	
+	else {
+		// Canvas size = draw area size
+		this.m_electricCable.width = SCREEN_WIDTH;
+		this.m_electricCable.height = SCREEN_HEIGHT;
+
+		// Canvas CSS size = display size (stretches or shrinks it)
+		this.m_electricCable.style.width = SCREEN_WIDTH;
+		this.m_electricCable.style.height = SCREEN_HEIGHT;
+	}
+	
+	this.m_cableCanvas.lineWidth = 1.5;
+	this.m_cableCanvas.lineJoin = "round";
+	this.m_cableCanvas.strokeStyle = "black";
 
 	this.m_startEndDrawPoint = CABLE_HEIGHT; // Y
 	this.m_startPoint = POLE_WIDTH; // X Left

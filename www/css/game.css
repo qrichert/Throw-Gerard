@@ -62,7 +62,7 @@ body {
 }
 
 #frame-for-images-to-preload { position: absolute; width: 0px; height: 0px; overflow: hidden; }
-#electric-cable { position: absolute; z-index: -2; }
+#electric-cable { position: absolute; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: -2; }
 #electricity { position: absolute; z-index: -1; background-size: contain; }
 #gerard { position: absolute; background-size: contain; }
 #gerard-eyes { position: absolute; background-size: contain; }
