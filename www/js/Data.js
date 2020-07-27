@@ -196,7 +196,8 @@ function Data() {
 		}
 		
 		this.getUseClouds = function() {
-			return this.getValue("use-clouds") == "true" ? true : false;
+			return true;
+			//return this.getValue("use-clouds") == "true" ? true : false;
 		}
 		
 	// Test Type
